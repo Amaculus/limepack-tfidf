@@ -71,7 +71,7 @@ def convert_tfidf_to_frequency(tfidf_score, total_word_count, avg_word_count, sc
 
 # Streamlit app
 def main():
-    st.title("SEO Recommendations based on TF-IDF Analysis")
+    st.title("Competitor TF-IDF Analysis")
     
     # Add custom CSS for the selectbox color
     st.markdown(
