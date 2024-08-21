@@ -148,8 +148,10 @@ def main():
 
         # Step 6: Create the DataFrame and display it
         df = pd.DataFrame(recommendations)
+        df.sort_values(by='Average TF-IDF Score', ascending=False, inplace=True)
         # Add a column for 'Average Word Count', and ensure all cells are valid
         df.insert(df.columns.get_loc('Source URL') + 1, 'Average Word Count', avg_word_count)
+        df.reset_index(drop=True, inplace=True)
 
         st.write("### Recommendations")
         st.dataframe(df)
@@ -162,6 +164,16 @@ def main():
             file_name="seo_recommendations.csv",
             mime="text/csv",
         )
+
+
+    # Adding a footnote with a hyperlink to LinkedIn
+    st.markdown(
+        """
+        <div style='text-align: center; padding-top: 20px;'>
+            Developed by <a href="https://www.linkedin.com/in/antonio-atilio-maculus-70b6b9196/" target="_blank">Antonio Maculus</a>
+        </div>
+        """, 
+        unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
